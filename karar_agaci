@@ -1,0 +1,16 @@
+// Karar Ağacı
+digraph {
+	"Yaş"
+	"Yaş -> Yaşlı" [label="Yaşlı"]
+	"Yaş" -> "Yaş -> Yaşlı"
+	"Yaş -> Orta" [label=Orta]
+	"Yaş" -> "Yaş -> Orta"
+	"Yaş -> Orta -> İlk" [label="İlk"]
+	"Yaş -> Orta" -> "Yaş -> Orta -> İlk"
+	"Yaş -> Orta -> Orta" [label=Orta]
+	"Yaş -> Orta" -> "Yaş -> Orta -> Orta"
+	"Yaş -> Orta -> Yüksek" [label="Yüksek"]
+	"Yaş -> Orta" -> "Yaş -> Orta -> Yüksek"
+	"Yaş -> Genç" [label="Genç"]
+	"Yaş" -> "Yaş -> Genç"
+}

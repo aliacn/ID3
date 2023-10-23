@@ -3,14 +3,14 @@ from collections import Counter
 import math
 
 
-# Karar ağacı düğümlerini temsil eden sınıf
+# Karar ağacı düğümlerini temsil eden sınıfı oluşturuyoruz
 class Node:
     def __init__(self, data):
         self.data = data
         self.children = {}
 
 
-# Veri setindeki belirsizliği ölçen entropi hesaplayan fonksiyon
+# Entropi hesaplayan fonksiyon
 def entropy(data):
     labels = [item[-1] for item in data]
     label_counts = Counter(labels)
@@ -24,7 +24,7 @@ def entropy(data):
     return entropy
 
 
-# Belirli bir özelliğe göre verinin bölünmesinin ne kadar bilgi kazandırdığını hesaplayan fonksiyon
+# Bilgi kazandırdığını hesaplayan fonksiyon
 def information_gain(data, feature_index):
     total_entropy = entropy(data)
     feature_values = [item[feature_index] for item in data]
@@ -40,7 +40,7 @@ def information_gain(data, feature_index):
     return total_entropy - weighted_entropy
 
 
-# Bir veri setinde en yaygın olan etiketi (sınıfı) bulan fonksiyon
+# En  bulan fonksiyon
 def most_common_label(data):
     labels = [item[-1] for item in data]
     label_counts = Counter(labels)
@@ -127,10 +127,10 @@ def plot_tree(node, parent_name, graph, depth=0):
 
 from graphviz import Digraph
 
-# Ağacı görselleştirmek için Graphviz kullanın
+# Graphviz ile karar ağacını görselleştirebiliriz
 dot = Digraph(comment='Karar Ağacı')
 dot.node(root_node.data)
 plot_tree(root_node, root_node.data, dot)
 
-# Ağacı görüntüle
+# Ağacı görüntüleme
 dot.render('karar_agaci', view=True)
